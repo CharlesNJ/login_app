@@ -40,7 +40,7 @@ class LoginState extends State<Login> {
         ),
         body: new Container(
           alignment: Alignment.topCenter,
-          child: new Column(children: <Widget>[
+          child: new ListView(children: <Widget>[
             new Image.asset(
               'images/logo.png',
               width: 90,
@@ -59,6 +59,7 @@ class LoginState extends State<Login> {
                         hintText: 'Username', icon: new Icon(Icons.person)),
                   ),
                   new TextField(
+                    obscureText: true,
                       controller: _passwordController,
                       decoration: new InputDecoration(
                           hintText: 'Passowrd',
