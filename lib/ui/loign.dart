@@ -8,6 +8,10 @@ class Login extends StatefulWidget {
   }
 }
 class LoginState extends State<Login>{
+
+  final TextEditingController _userController = new TextEditingController();
+  final TextEditingController _passwordController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -15,7 +19,6 @@ class LoginState extends State<Login>{
       backgroundColor: Colors.blueGrey,
       appBar: new AppBar(
         title: new Text('Dr. Cough'),
-        centerTitle: true,
         backgroundColor: Colors.red.shade800,),
         body: new Container(
           alignment: Alignment.topCenter,
@@ -26,16 +29,60 @@ class LoginState extends State<Login>{
               height: 90,
               //color: Colors.amber,
             ),
+
               new Container(
                 height: 180,
-          width: 380, color: Colors.white)        )
-    ],
+                width: 380, color: Colors.white,
+                child: new Column(
+                  children: <Widget>[
+                    new TextField(
+                      controller: _userController,
+                      decoration: new InputDecoration(
+                      hintText: 'Username',
+                        icon: new Icon(Icons.person)
+                    ),
+                  )         ,
+                  new TextField(
+                    controller: _passwordController,
+                    decoration: new InputDecoration(
+                        hintText: 'Passowrd',
+                        icon: new Icon(Icons.lock_outline)
+                  )),
+                  new Padding(padding: new EdgeInsets.all(10)),
+                    new Center(
+                      child: new Row(
+                      children: <Widget>[
+                        new Container(
+                          margin: const EdgeInsets.only(left: 70),
+                    child: new RaisedButton(onPressed:()=> debugPrint('Login pressed'),
+          color: Colors.lightGreen,
+
+          child: new Text('Login'),
+        ),
+                      ),
+
+                        new Container(
+                          margin: const EdgeInsets.only(left: 30),
+                          child: new RaisedButton(onPressed:()=> debugPrint('Clear pressed'),
+                            color: Colors.blueGrey,
+
+                            child: new Text('Clear'),
+                          ),
+                        )
+                      ],
+                    )
+
+                  )
+                  ],
+                ),
+              )     ]   )
+    ,
           )
-        )
-    );
+        );
 
 
-    ;
+
+
   }
 
 }
